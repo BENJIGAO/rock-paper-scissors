@@ -99,19 +99,3 @@ function game(counter) {
     }
     return; // after logging result, return no value
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
