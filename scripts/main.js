@@ -26,3 +26,16 @@ function userPlay() {
     }
     return userSelection; // returns lowercased valid user input
 }
+
+// Computes winner of one round of Rock-Paper-Scissors using conditions
+// Takes two inputs: computers selection and user's selection
+
+// condition if the user & computer choose the same
+// "tie" message
+
+// conditions if the user beats the computer
+// "win" message
+
+// computer wins (all other cases covered)
+// "lose" message
+
