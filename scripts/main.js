@@ -37,36 +37,65 @@ function playRound(userSelection, computerSelection) {
     
     // condition if the user & computer choose the same
     else if (userSelection == computerSelection) {
-        return "Tie!"; // "tie" return value
+        return "Tie"; // "tie" return value
     }
     // conditions if the user beats the computer
     else if (userSelection == "rock" && computerSelection == "scissors"|| 
     userSelection == "scissors" && computerSelection == "paper" ||
     userSelection == "paper" && computerSelection == "rock") {
-        return "You win!"; // "win" return value
+        return "Win"; // "win" return value
     }
     // computer wins if other cases are false
     else {
-        return "You lose!"; // "lose" return value
+        return "Lose"; // "lose" return value
     }
 }
 
-// Simulates multiple rounds of Rock-Paper-Scissors
-// Takes one integer parameter representing # of rounds to play
+// Simulates multiple Rock-Paper-Scissors rounds
+// One integer parameter --> # of rounds to play
 function game(counter) {
-    let userScore = 0; // user's score variable 
-    let computerScore = 0; // computer's score variable
-    let result; // declaration only
+    let userScore = 0; // user's score 
+    let computerScore = 0; // computer's score 
+    let result; // result of one round
 
     // for loop using paramater as stopping value
     for (let i = 0; i < counter; i++) {
-        result = playRound(userPlay(), computerPlay()); // storing result of each round in variable
-        // switch statement to determine 
+        result = playRound(userPlay(), computerPlay()); // one round each iteration
+        // To determine results of one round
         switch (result) {
+            // User cancelled
             case null:
-                 
-
-        
+                console.log("User Cancelled");
+                return;
+            // User tied round
+            case "Tie":
+                userScore++;
+                computerScore++;
+                break;
+            // User won round
+            case "Win":
+                userScore++;
+                break;
+            // User lost round
+            case "Lose":
+                computerScore++;
+                break;
+        }
+    } // finals results are in; comparison time!
+    // To determine who won overall
+    switch (true) {
+        // User tied
+        case userScore == computerScore:
+            console.log("Fucking tie I quit");
+            return;
+        // User won
+        case userScore > computerScore:
+            console.log("Let's fucking go, I take the dubs"); 
+            return;
+        // User lost
+        case userScore < computerScore:
+            console.log("Bruh this is rigged");
+            return; 
     }
 }
 
