@@ -1,66 +1,60 @@
-// Simulates a computer playing a move for rock-paper-scissors
 function computerPlay() {   
-    const possibleSelections = ["rock", "paper", "scissors"]; // list of three possible choices
-
-    let randomIndex = Math.floor(Math.random() * 3); // generating random number from 0-2
-
-    return possibleSelections[randomIndex]; // return random array element using randomIndex
+    const possibleSelections = ["rock", "paper", "scissors"]; 
+    // 0-2
+    let randomIndex = Math.floor(Math.random() * 3); 
+    // random array element
+    return possibleSelections[randomIndex]; 
 }
 
-// Gets valid input from user for rock-paper-scissors game
 function userPlay() { 
-    const validAnswers = ["rock", "paper", "scissors"]; // array of acceptable answers
-
+    const validAnswers = ["rock", "paper", "scissors"];
+    // user's input 
     let userSelection; 
-
-    // while loop checking validity of user input
+    // loops until user cancels or puts valid input
     while (!validAnswers.includes(userSelection)) {
-        userSelection = prompt("Choose 'rock', 'paper', or 'scissors'"); // Storing user input
-
+        userSelection = prompt("Choose 'rock', 'paper', or 'scissors'"); 
         // checking if user pressed "Cancel"
         if (userSelection == null) {
-            return null; // returns "null" string if true 
+            return null; 
         }
-        
-        userSelection = userSelection.toLowerCase(); // lowercases userSelection (!= null/undefined)
+        // to make input case-insensitive
+        userSelection = userSelection.toLowerCase(); 
     }
-    return userSelection; // returns lowercased valid user input
+    // returns valid input
+    return userSelection; 
 }
 
-// Computes results of one round of Rock-Paper-Scissors
-// Takes two inputs: computer's selection, user's selection
+// computes one round of Rock-Paper-Scissors
 function playRound(userSelection, computerSelection) {
-    // condition if user cancelled
+    // if user cancelled
     if (userSelection == null) {
         return null;
     }
-    
-    // condition if the user & computer choose the same
+    // if user & computer choose the same
     else if (userSelection == computerSelection) {
-        return "Tie"; // "tie" return value
+        return "Tie"; 
     }
-    // conditions if the user beats the computer
+    // if user beats computer
     else if (userSelection == "rock" && computerSelection == "scissors"|| 
-    userSelection == "scissors" && computerSelection == "paper" ||
-    userSelection == "paper" && computerSelection == "rock") {
-        return "Win"; // "win" return value
+            userSelection == "scissors" && computerSelection == "paper" ||
+            userSelection == "paper" && computerSelection == "rock") {
+        return "Win"; 
     }
-    // computer wins if other cases are false
+    // if computer beats user
     else {
-        return "Lose"; // "lose" return value
+        return "Lose"; 
     }
 }
 
-// Simulates multiple Rock-Paper-Scissors rounds
-// One integer parameter --> # of rounds to play
+// parameter == # of rounds of Rock-Paper-Scissors
 function game(counter) {
-    let userScore = 0; // user's score 
-    let computerScore = 0; // computer's score 
+    let userScore = 0; 
+    let computerScore = 0; 
     let result; // result of one round
 
-    // for loop using paramater as stopping value
+    // loops "counter" times
     for (let i = 0; i < counter; i++) {
-        result = playRound(userPlay(), computerPlay()); // one round each iteration
+        result = playRound(userPlay(), computerPlay()); // one round/iteration
         // To determine results of one round
         switch (result) {
             // User cancelled
