@@ -87,16 +87,17 @@ function game(counter) {
         // User tied
         case userScore == computerScore:
             console.log("Fucking tie I quit");
-            return;
+            break;
         // User won
         case userScore > computerScore:
             console.log("Let's fucking go, I take the dubs"); 
-            return;
+            break;
         // User lost
         case userScore < computerScore:
             console.log("Bruh this is rigged");
-            return; 
+            break;
     }
+    return; // after logging result, return no value
 }
 
 
