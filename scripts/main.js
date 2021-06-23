@@ -19,7 +19,7 @@ function userPlay() {
 
         // checking if user pressed "Cancel"
         if (userSelection == null) {
-            return "User cancelled"; // returns "cancelled" string if true 
+            return null; // returns "null" string if true 
         }
         
         userSelection = userSelection.toLowerCase(); // lowercases userSelection (!= null/undefined)
@@ -27,15 +27,61 @@ function userPlay() {
     return userSelection; // returns lowercased valid user input
 }
 
-// Computes winner of one round of Rock-Paper-Scissors using conditions
-// Takes two inputs: computers selection and user's selection
+// Computes results of one round of Rock-Paper-Scissors
+// Takes two inputs: computer's selection, user's selection
+function playRound(userSelection, computerSelection) {
+    // condition if user cancelled
+    if (userSelection == null) {
+        return null;
+    }
+    
+    // condition if the user & computer choose the same
+    else if (userSelection == computerSelection) {
+        return "Tie!"; // "tie" return value
+    }
+    // conditions if the user beats the computer
+    else if (userSelection == "rock" && computerSelection == "scissors"|| 
+    userSelection == "scissors" && computerSelection == "paper" ||
+    userSelection == "paper" && computerSelection == "rock") {
+        return "You win!"; // "win" return value
+    }
+    // computer wins if other cases are false
+    else {
+        return "You lose!"; // "lose" return value
+    }
+}
 
-// condition if the user & computer choose the same
-// "tie" message
+// Simulates multiple rounds of Rock-Paper-Scissors
+// Takes one integer parameter representing # of rounds to play
+function game(counter) {
+    let userScore = 0; // user's score variable 
+    let computerScore = 0; // computer's score variable
+    let result; // declaration only
 
-// conditions if the user beats the computer
-// "win" message
+    // for loop using paramater as stopping value
+    for (let i = 0; i < counter; i++) {
+        result = playRound(userPlay(), computerPlay()); // storing result of each round in variable
+        // switch statement to determine 
+        switch (result) {
+            case null:
+                 
 
-// computer wins (all other cases covered)
-// "lose" message
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
