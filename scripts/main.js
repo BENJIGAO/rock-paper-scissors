@@ -47,7 +47,7 @@ function playRound(userSelection, computerSelection) {
 }
 
 // parameter == # of rounds of Rock-Paper-Scissors
-function game(counter) {
+function playGame(counter) {
     let userScore = 0; 
     let computerScore = 0; 
     let result; // result of one round
