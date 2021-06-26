@@ -1,15 +1,47 @@
-let btns = document.querySelectorAll('.btn');
+let btns = document.querySelectorAll('div#rps-icons > button');
 
 btns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-        console.log(e);
         let userSelection = e.toElement.className;
-        console.log(userSelection);
         let result = playRound(userSelection, computerPlay());
         updateScore(result);
         checkScore();
     })
 })
+
+function updateScore(result) {
+    const displayMessage = document.getElementById('display-message');
+    if (result == 'Tie') {
+        const userScore = document.getElementById('user-tally');
+        let tmpUserScore = +userScore.textContent;
+        userScore.textContent = ++tmpUserScore; 
+
+        const CompScore = document.getElementById('computer-tally');
+        let tmpCompScore = +CompScore.textContent;
+        CompScore.textContent = ++tmpCompScore; 
+
+        displayMessage.textContent = 'Tie!';
+    }
+
+    else if (result == 'Win') {
+        const userScore = document.getElementById('user-tally');
+        let tmpUserScore = +userScore.textContent;
+        userScore.textContent = ++tmpUserScore; 
+
+        displayMessage.textContent = 'Win!';
+    }
+        
+
+    else {
+        const CompScore = document.getElementById('computer-tally');
+        let tmpCompScore = +CompScore.textContent;
+        CompScore.textContent = ++tmpCompScore; 
+
+        displayMessage.textContent = 'Lose!';
+    }
+}
+
+
 
 function playRound(userSelection, computerSelection) {
     // if user & computer choose the same
