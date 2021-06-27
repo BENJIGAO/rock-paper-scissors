@@ -9,6 +9,22 @@ btns.forEach((btn) => {
     })
 })
 
+function checkScore() {
+    let userScore = +document.getElementById('user-tally').textContent;
+    let compScore = +document.getElementById('computer-tally').textContent;
+    const displayMessage = document.getElementById('display-message');
+    if (userScore == 5) {
+        displayMessage.textContent = 'You win :)';
+    }
+    else if (compScore == 5) {
+        displayMessage.textContent = 'You lose :(';
+    }
+
+    else if (userScore == 5 && compScore == 5) {
+        displayMessage.textContent = 'It\'s a tie :|';
+    }
+}
+
 function updateScore(result) {
     const displayMessage = document.getElementById('display-message');
     if (result == 'Tie') {
