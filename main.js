@@ -6,7 +6,7 @@ function main() {
 }
 
 function playGame(e) {
-    let userSelection = e.toElement.className;
+    let userSelection = e.toElement.className.split(' ')[0];
     let result = playRound(userSelection, computerPlay());
     updateScore(result);
     if (checkScore() == "Done") {
@@ -31,18 +31,18 @@ function reset() {
     restart.textContent = '';
     restart.style.visibility = 'hidden';
     restart.removeEventListener('click', reset)
-
-    
-
     main();
 }
-
 
 function checkScore() {
     let userScore = +document.getElementById('user-tally').textContent;
     let compScore = +document.getElementById('computer-tally').textContent;
     const displayMessage = document.getElementById('display-message');
-    if (userScore == 5) {
+    if (userScore == 5 && compScore == 5) {
+        displayMessage.textContent = 'It\'s a tie :|';
+        return "Done";
+    }
+    else if (userScore == 5) {
         displayMessage.textContent = 'You win :)';
         return "Done";
     }
@@ -51,10 +51,7 @@ function checkScore() {
         return "Done";
     }
 
-    else if (userScore == 5 && compScore == 5) {
-        displayMessage.textContent = 'It\'s a tie :|';
-        return "Done";
-    }
+    
 }
 
 function updateScore(result) {
@@ -86,8 +83,6 @@ function updateScore(result) {
         displayMessage.textContent = 'Lose!';
     }
 }
-
-
 
 function playRound(userSelection, computerSelection) {
     // if user & computer choose the same
