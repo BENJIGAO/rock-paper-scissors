@@ -1,13 +1,34 @@
-let btns = document.querySelectorAll('div#rps-icons > button');
+main();
 
-btns.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-        let userSelection = e.toElement.className;
-        let result = playRound(userSelection, computerPlay());
-        updateScore(result);
-        checkScore();
-    })
-})
+function main() {
+    let btns = document.querySelectorAll('div#rps-icons > button');
+    btns.forEach((btn) => {btn.addEventListener('click', playGame)});
+}
+
+function playGame(e) {
+    let userSelection = e.toElement.className;
+    let result = playRound(userSelection, computerPlay());
+    updateScore(result);
+    if (checkScore() == "Done") {
+        endGame();
+    }
+}
+
+function endGame() {
+    let btns = document.querySelectorAll('div#rps-icons > button');
+    btns.forEach((btn) => {btn.removeEventListener('click', playGame)});
+    const tmpRef = document.getElementById('score-display');
+    const restart = document.getElementById('restart');
+    restart.textContent = 'Restart?';
+    restart.style.visibility = 'visible';
+    restart.addEventListener('click', reset)
+}
+
+function reset() {
+    location.reload();
+
+}
+
 
 function checkScore() {
     let userScore = +document.getElementById('user-tally').textContent;
@@ -15,13 +36,16 @@ function checkScore() {
     const displayMessage = document.getElementById('display-message');
     if (userScore == 5) {
         displayMessage.textContent = 'You win :)';
+        return "Done";
     }
     else if (compScore == 5) {
         displayMessage.textContent = 'You lose :(';
+        return "Done";
     }
 
     else if (userScore == 5 && compScore == 5) {
         displayMessage.textContent = 'It\'s a tie :|';
+        return "Done";
     }
 }
 
@@ -46,8 +70,6 @@ function updateScore(result) {
 
         displayMessage.textContent = 'Win!';
     }
-        
-
     else {
         const CompScore = document.getElementById('computer-tally');
         let tmpCompScore = +CompScore.textContent;
@@ -83,7 +105,3 @@ function computerPlay() {
     // random array element
     return possibleSelections[randomIndex]; 
 }
-
-
-
-
