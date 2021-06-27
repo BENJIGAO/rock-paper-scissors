@@ -25,8 +25,16 @@ function endGame() {
 }
 
 function reset() {
-    location.reload();
+    document.getElementById('user-tally').textContent = "0";
+    document.getElementById('computer-tally').textContent = "0";
+    document.getElementById('display-message').textContent = '';
+    restart.textContent = '';
+    restart.style.visibility = 'hidden';
+    restart.removeEventListener('click', reset)
 
+    
+
+    main();
 }
 
 
