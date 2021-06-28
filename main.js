@@ -18,7 +18,9 @@ function playGame(e) {
 
 function displayIcons(userSelection, computerSelection, result) {
     const userIcon = document.getElementById('user-play-icon');
+    const userExpression = document.getElementById('user-icon');
     const computerIcon = document.getElementById('computer-play-icon');
+
     switch (userSelection) {
         case 'rock':
             userIcon.setAttribute('src', 'imgs/rock.png')
@@ -45,6 +47,17 @@ function displayIcons(userSelection, computerSelection, result) {
         case 'scissors':
             computerIcon.setAttribute('src', 'imgs/scissors-reverse.png')
             computerIcon.style.visibility = 'visible';
+            break;
+    }
+    switch (result) {
+        case 'Win':
+            userExpression.setAttribute('src', 'imgs/user-win.png');
+            break;
+        case 'Tie':
+            userExpression.setAttribute('src', 'imgs/user-normal.png');
+            break;
+        case 'Lose':
+            userExpression.setAttribute('src', 'imgs/user-lose.png');
             break;
     }
 
