@@ -78,15 +78,50 @@ body, html {
     background-image: url("/imgs/scissors.png");
 }
 
+#bottom-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+#user-display, #computer-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+}
+
+#user-display {
+    margin-top: -50px;
+}
+
+#user-icon {
+    transform: translateY(30px);
+    width: 260px;
+    height: 300px;
+}
+
+
+#computer-icon {
+    transform: scale(0.9);
+}
+
+.user-computer-labels {
+    font-size: 20px;
+
+}
+
+#user-play, #computer-play {
+    width: 17.5%;
+}
 
   
 
 #score-display {
-    margin-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 15%;
 }
 
 #score {
