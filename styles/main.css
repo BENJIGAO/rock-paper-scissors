@@ -119,7 +119,6 @@ body, html {
     align-items: center;
     align-self: flex-start;
     width: 300px;
-    font-size: 60px;
     transform: translateY(90px);
 }
 
@@ -127,19 +126,33 @@ body, html {
     display: flex;
     width: 10rem;
     justify-content: space-evenly;
+    align-items: center;
     margin-top: 1rem;
     font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#user-tally, #computer-tally {
+    font-size: 80px
 }
 
 #display-message {
     text-align: center;
     font-size: 40px;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 #restart {
     width: 4rem;
     height: 1.5rem;
     visibility: hidden;
+    width: 150px;
+    height: 50px;
+    font-size: 25px;
+    background-color: #ff9999;
+}
 
+#restart:hover {
+    box-shadow: rgb(209 206 9) 0px 22px 70px 4px, rgb(209 206 9) 0px -22px 70px 4px;
 }
