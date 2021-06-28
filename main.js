@@ -7,11 +7,48 @@ function main() {
 
 function playGame(e) {
     let userSelection = e.toElement.className.split(' ')[0];
-    let result = playRound(userSelection, computerPlay());
+    let computerSelection = computerPlay();
+    let result = playRound(userSelection, computerSelection);
+    displayIcons(userSelection, computerSelection, result);
     updateScore(result);
     if (checkScore() == "Done") {
         endGame();
     }
+}
+
+function displayIcons(userSelection, computerSelection, result) {
+    const userIcon = document.getElementById('user-play-icon');
+    const computerIcon = document.getElementById('computer-play-icon');
+    switch (userSelection) {
+        case 'rock':
+            userIcon.setAttribute('src', 'imgs/rock.png')
+            userIcon.style.visibility = 'visible';
+            break;
+        case 'paper':
+            userIcon.setAttribute('src', 'imgs/paper.png')
+            userIcon.style.visibility = 'visible';
+            break;
+        case 'scissors':
+            userIcon.setAttribute('src', 'imgs/scissors.png')
+            userIcon.style.visibility = 'visible';
+            break;
+    }
+    switch (computerSelection) {
+        case 'rock':
+            computerIcon.setAttribute('src', 'imgs/rock-reverse.png')
+            computerIcon.style.visibility = 'visible';
+            break;
+        case 'paper':
+            computerIcon.setAttribute('src', 'imgs/paper-reverse.png')
+            computerIcon.style.visibility = 'visible';
+            break;
+        case 'scissors':
+            computerIcon.setAttribute('src', 'imgs/scissors-reverse.png')
+            computerIcon.style.visibility = 'visible';
+            break;
+    }
+
+
 }
 
 function endGame() {
