@@ -15,7 +15,7 @@ body, html {
     text-align: center;
     font-size: 80px;
     letter-spacing: 4px;
-    margin-top: 100px;
+    margin-top: 60px;
 }
 
 #scythe-left {
@@ -34,9 +34,15 @@ body, html {
     font-size: 40px;
 }
 
+#sub-heading {
+    font-size: 40px;
+    margin-top: 30px;
+}
+
 #rps-icons {
     display: flex;
     width: 1000px;
+    margin-top: 30px;
     justify-content: space-evenly;
 }
 
@@ -46,15 +52,18 @@ body, html {
     background-color: tan;
     background-size: contain;
     border-radius: 40px;
-    box-shadow: 4px 4px 4px 5px #d6e468, -4px -4px 3px 5px #d6e468;
-    transition: 0.3s;
+    transition: box-shadow 0.05s, transform 0.01s;
     border-style: solid;
 }
 
 .btn:hover {
-    transform: translateY(20px);
+    box-shadow: rgb(209 206 9) 0px 22px 70px 4px, rgb(209 206 9) 0px -22px 70px 4px;
 }
 
+
+.btn:active {
+    transform: translateY(40px);
+}
 
 .rock {
     background-image: url("/imgs/rock.png");
@@ -68,46 +77,82 @@ body, html {
     background-image: url("/imgs/scissors.png");
 }
 
+#bottom-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
 
-
-  
-
-#score-display {
-    margin-top: 100px;
+#user-display, #computer-display {
     display: flex;
     flex-direction: column;
     align-items: center;
+    align-self: flex-start;
+    width: 20%;
+    font-size: 40px;
+}
+
+#user-play, #computer-play {
+    width: 20%;
+}
+
+#user-icon {
+    transform: translateY(15px);
+}
+
+#computer-icon {
+    height: 300px;
+}
+
+#computer-play {
+    transform: translateX(-30px);
+}
+
+#computer-display {
+    transform: translateX(-10px);
+}
+
+#score-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: flex-start;
+    width: 300px;
+    transform: translateY(90px);
 }
 
 #score {
     display: flex;
     width: 10rem;
     justify-content: space-evenly;
+    align-items: center;
     margin-top: 1rem;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
-
-#user {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#computer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transform: translateX(15px);
+#user-tally, #computer-tally {
+    font-size: 80px
 }
 
 #display-message {
     text-align: center;
-    height: 1.5rem;
+    font-size: 40px;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 #restart {
     width: 4rem;
     height: 1.5rem;
     visibility: hidden;
+    width: 150px;
+    height: 50px;
+    font-size: 25px;
+    background-color: #ff9999;
+}
 
+#restart:hover {
+    box-shadow: rgb(209 206 9) 0px 22px 70px 4px, rgb(209 206 9) 0px -22px 70px 4px;
 }

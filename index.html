@@ -14,32 +14,37 @@
             ROCK-PAPER-SCISSORS
         </h1>
         
-        <h2>Choose Your Weapon</h2>
+        <h2 id="sub-heading">Choose Your Weapon</h2>
         <div id="rps-icons">
             <button class="rock btn"></button>
             <button class="paper btn"></button>
             <button class="scissors btn"></button>
         </div>
-        <div id="score-display">
-            <div id="score">
-                <div id="user">
-                    User
+        <div id="bottom-display">
+            <div id="user-display">
+                <h3 class="user-computer-labels">You</h3>
+                <img id="user-icon" src="imgs/user-normal.png">
+            </div>
+            <div id="user-play">
+                <img src="imgs/rock.png">
+            </div>
+            <div id="score-display">
+                <div id="score">
                     <p id="user-tally">0</p>
-                </div>
-                <div id="computer">
-                    Computer
+                    VS
                     <p id="computer-tally">0</p>
                 </div>
+                <div id="display-message"></div>
+                <button id="restart"></button>  
             </div>
-            <div id="display-message"></div>
-            <button id="restart"></button>  
-
-           
+            <div id="computer-play">
+                <img src="imgs/scissors-reverse.png">
+            </div>
+            <div id="computer-display">
+                <h3 class="user-computer-labels">Computer</h3>
+                <img id="computer-icon" src="imgs/computer.png">
+            </div>
         </div>
-        
-        
-        
-        
     </div>  
     <script src="main.js" type="text/javascript"></script>
 </body>
