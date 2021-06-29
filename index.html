@@ -5,7 +5,11 @@
     <link rel="stylesheet" href="styles/reset.css">
 </head>
 <body>
-    <audio src="audio/background-music.mp3" autoplay loop></audio>
+    <audio id="background-music" src="audio/background-music.mp3" loop autoplay></audio>
+    <audio id="win-game-audio" src="audio/win-game.mp3"></audio>
+    <audio id="lose-game-audio" src="audio/game-over.mp3"></audio>
+    <audio id="win-round-audio" src="audio/win.mp3"></audio>
+
     <div id="container">
         <h1 id="main-header">
             <img id="scythe-left" src="imgs/scythe-left.png">
@@ -47,6 +51,7 @@
             </div>
         </div>
     </div>  
+    
     <script src="main.js" type="text/javascript"></script>
 </body>
 </html>

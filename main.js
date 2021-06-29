@@ -1,6 +1,7 @@
 main();
 
 function main() {
+    document.getElementById('background-music').setAttribute('muted', false);
     let btns = document.querySelectorAll('div#rps-icons > button');
     btns.forEach((btn) => {btn.addEventListener('click', playGame)});
 }
@@ -90,14 +91,17 @@ function checkScore() {
     const displayMessage = document.getElementById('display-message');
     if (userScore == 5 && compScore == 5) {
         displayMessage.textContent = 'It\'s a tie :|';
+        document.getElementById('win-round-audio').play();
         return "Done";
     }
     else if (userScore == 5) {
         displayMessage.textContent = 'You win :)';
+        document.getElementById('win-game-audio').play();
         return "Done";
     }
     else if (compScore == 5) {
         displayMessage.textContent = 'You lose :(';
+        document.getElementById('lose-game-audio').play();
         return "Done";
     }
 
