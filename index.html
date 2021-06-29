@@ -5,6 +5,11 @@
     <link rel="stylesheet" href="styles/reset.css">
 </head>
 <body>
+    <audio id="background-music" src="audio/background-music.mp3" loop autoplay></audio>
+    <audio id="win-game-audio" src="audio/win-game.mp3"></audio>
+    <audio id="lose-game-audio" src="audio/game-over.mp3"></audio>
+    <audio id="win-round-audio" src="audio/win.mp3"></audio>
+
     <div id="container">
         <h1 id="main-header">
             <img id="scythe-left" src="imgs/scythe-left.png">
@@ -26,7 +31,7 @@
                 <img id="user-icon" src="imgs/user-normal.png">
             </div>
             <div id="user-play">
-                <img src="imgs/rock.png">
+                <img id="user-play-icon" src="imgs/rock.png">
             </div>
             <div id="score-display">
                 <div id="score">
@@ -38,7 +43,7 @@
                 <button id="restart"></button>  
             </div>
             <div id="computer-play">
-                <img src="imgs/scissors-reverse.png">
+                <img id="computer-play-icon" src="imgs/scissors-reverse.png">
             </div>
             <div id="computer-display">
                 <h3 class="user-computer-labels">Computer</h3>
@@ -46,6 +51,7 @@
             </div>
         </div>
     </div>  
+    
     <script src="main.js" type="text/javascript"></script>
 </body>
 </html>

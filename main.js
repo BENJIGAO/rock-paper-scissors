@@ -7,11 +7,61 @@ function main() {
 
 function playGame(e) {
     let userSelection = e.toElement.className.split(' ')[0];
-    let result = playRound(userSelection, computerPlay());
+    let computerSelection = computerPlay();
+    let result = playRound(userSelection, computerSelection);
+    displayIcons(userSelection, computerSelection, result);
     updateScore(result);
     if (checkScore() == "Done") {
         endGame();
     }
+}
+
+function displayIcons(userSelection, computerSelection, result) {
+    const userIcon = document.getElementById('user-play-icon');
+    const userExpression = document.getElementById('user-icon');
+    const computerIcon = document.getElementById('computer-play-icon');
+
+    switch (userSelection) {
+        case 'rock':
+            userIcon.setAttribute('src', 'imgs/rock.png')
+            userIcon.style.visibility = 'visible';
+            break;
+        case 'paper':
+            userIcon.setAttribute('src', 'imgs/paper.png')
+            userIcon.style.visibility = 'visible';
+            break;
+        case 'scissors':
+            userIcon.setAttribute('src', 'imgs/scissors.png')
+            userIcon.style.visibility = 'visible';
+            break;
+    }
+    switch (computerSelection) {
+        case 'rock':
+            computerIcon.setAttribute('src', 'imgs/rock-reverse.png')
+            computerIcon.style.visibility = 'visible';
+            break;
+        case 'paper':
+            computerIcon.setAttribute('src', 'imgs/paper-reverse.png')
+            computerIcon.style.visibility = 'visible';
+            break;
+        case 'scissors':
+            computerIcon.setAttribute('src', 'imgs/scissors-reverse.png')
+            computerIcon.style.visibility = 'visible';
+            break;
+    }
+    switch (result) {
+        case 'Win':
+            userExpression.setAttribute('src', 'imgs/user-win.png');
+            break;
+        case 'Tie':
+            userExpression.setAttribute('src', 'imgs/user-normal.png');
+            break;
+        case 'Lose':
+            userExpression.setAttribute('src', 'imgs/user-lose.png');
+            break;
+    }
+
+
 }
 
 function endGame() {
@@ -40,14 +90,17 @@ function checkScore() {
     const displayMessage = document.getElementById('display-message');
     if (userScore == 5 && compScore == 5) {
         displayMessage.textContent = 'It\'s a tie :|';
+        document.getElementById('win-round-audio').play();
         return "Done";
     }
     else if (userScore == 5) {
         displayMessage.textContent = 'You win :)';
+        document.getElementById('win-game-audio').play();
         return "Done";
     }
     else if (compScore == 5) {
         displayMessage.textContent = 'You lose :(';
+        document.getElementById('lose-game-audio').play();
         return "Done";
     }
 

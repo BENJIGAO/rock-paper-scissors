@@ -94,7 +94,12 @@ body, html {
 }
 
 #user-play, #computer-play {
-    width: 20%;
+    visibility: hidden;
+    width: 400px;
+}
+
+#user-play {
+    transform: translateX(15px);
 }
 
 #user-icon {
