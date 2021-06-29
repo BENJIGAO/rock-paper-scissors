@@ -1,7 +1,6 @@
 main();
 
 function main() {
-    document.getElementById('background-music').setAttribute('muted', false);
     let btns = document.querySelectorAll('div#rps-icons > button');
     btns.forEach((btn) => {btn.addEventListener('click', playGame)});
 }
