@@ -130,6 +130,15 @@ p#permission-message strong {
     width: 400px;
 }
 
+.user-play-icon {
+    transform: scale(0.1);
+    transition: all 2s;
+}
+
+.emerging-element {
+    transform: scale(1);
+}
+
 #user-play {
     transform: translateX(15px);
 }
