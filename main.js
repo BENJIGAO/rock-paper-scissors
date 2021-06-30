@@ -12,8 +12,25 @@ function playGame(e) {
     let result = playRound(userSelection, computerSelection);
     displayIcons(userSelection, computerSelection, result);
     updateScore(result);
-    if (checkScore() == "Done") {
+    playRoundAudio(result);
+    if (checkScore() == 'Done') {
         endGame();
+    }
+}
+
+function playRoundAudio(result) {
+    if (result == 'Win') {
+        document.getElementById('win-round-audio').play();
+        return;
+    }
+    else if (result == 'Tie') {
+        document.getElementById('tie-round-audio').play();
+        return;
+    }
+    else {
+        document.getElementById('lose-round-audio').play();
+        return;
+
     }
 }
 
@@ -28,12 +45,16 @@ function endGame() {
 }
 
 function reset() {
-    document.getElementById('user-tally').textContent = "0";
-    document.getElementById('computer-tally').textContent = "0";
+    document.getElementById('user-tally').textContent = '0';
+    document.getElementById('computer-tally').textContent = '0';
     document.getElementById('display-message').textContent = '';
+    const restart = document.getElementById('restart');
     restart.textContent = '';
     restart.style.visibility = 'hidden';
-    restart.removeEventListener('click', reset)
+    restart.removeEventListener('click', reset);
+    document.getElementById('user-icon').setAttribute('src', 'imgs/user-normal.png');
+    document.getElementById('user-play-icon').style.visibility = 'hidden';
+    document.getElementById('computer-play-icon').style.visibility = 'hidden';
     main();
 }
 
@@ -43,20 +64,18 @@ function checkScore() {
     const displayMessage = document.getElementById('display-message');
     if (userScore == 5 && compScore == 5) {
         displayMessage.textContent = 'It\'s a tie :|';
-        return "Done";
+        return 'Done';
     }
     else if (userScore == 5) {
         displayMessage.textContent = 'You win :)';
         document.getElementById('win-game-audio').play();
-        return "Done";
+        return 'Done';
     }
     else if (compScore == 5) {
         displayMessage.textContent = 'You lose :(';
         document.getElementById('lose-game-audio').play();
-        return "Done";
+        return 'Done';
     }
-
-    
 }
 
 function updateScore(result) {
@@ -91,22 +110,22 @@ function updateScore(result) {
 function playRound(userSelection, computerSelection) {
     // if user & computer choose the same
     if (userSelection == computerSelection) {
-        return "Tie"; 
+        return 'Tie'; 
     }
     // if user beats computer
-    else if (userSelection == "rock" && computerSelection == "scissors"|| 
-            userSelection == "scissors" && computerSelection == "paper" ||
-            userSelection == "paper" && computerSelection == "rock") {
-        return "Win"; 
+    else if (userSelection == 'rock' && computerSelection == 'scissors'|| 
+            userSelection == 'scissors' && computerSelection == 'paper' ||
+            userSelection == 'paper' && computerSelection == 'rock') {
+        return 'Win'; 
     }
     // if computer beats user
     else {
-        return "Lose"; 
+        return 'Lose'; 
     }
 }
 
 function computerPlay() {   
-    const possibleSelections = ["rock", "paper", "scissors"]; 
+    const possibleSelections = ['rock', 'paper', 'scissors']; 
     // 0-2
     let randomIndex = Math.floor(Math.random() * 3); 
     // random array element
