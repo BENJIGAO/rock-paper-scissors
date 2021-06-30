@@ -1,8 +1,21 @@
+getMusicPermission();
 main();
 
 function main() {
     let btns = document.querySelectorAll('div#rps-icons > button');
     btns.forEach((btn) => {btn.addEventListener('click', playGame)});
+}
+
+function getMusicPermission() {
+    document.getElementById('yes').addEventListener('click', () => {
+        document.getElementById('background-music').play();
+        document.getElementById('music-permission').style.visibility = 'hidden';
+    })
+    document.getElementById('no').addEventListener('click', () => {
+        document.getElementById('music-permission').style.visibility = 'hidden';
+    })
+    
+
 }
 
 function playGame(e) {

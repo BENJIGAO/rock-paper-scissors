@@ -33,6 +33,7 @@ p#permission-message strong {
     height: 50px;
     font-size: 25px;
     background-color: #d6c4c4;
+    margin: 0px 20px;
 }
 
 #container {
