@@ -139,7 +139,7 @@ p#permission-message strong {
     transform: scale(1);
 }
 
-.reset-transition {
+.remove-transition {
     transition: none;
 }
 

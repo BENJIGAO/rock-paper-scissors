@@ -11,13 +11,71 @@ function playGame(e) {
     let userSelection = e.toElement.className.split(' ')[0];
     let computerSelection = computerPlay();
     let result = playRound(userSelection, computerSelection);
-    displayIcons(userSelection, computerSelection, result);
+    displayUserPlay(userSelection);
+    playRestOfGame(computerSelection, result);
+}
+
+function playRestOfGame (computerSelection, result) {
+    displayOtherIcons(computerSelection, result);
     updateScore(result);
     if (checkScore() == 'Done') {
         endGame();
         return;
     }
     playRoundAudio(result);
+}
+
+function displayUserPlay(userSelection) {
+    const userIcon = document.querySelector('.user-play-icon');
+    resetTransition(userIcon);
+
+    switch (userSelection) {
+        case 'rock':
+            userIcon.setAttribute('src', 'imgs/rock.png');
+            break;
+        case 'paper':
+            userIcon.setAttribute('src', 'imgs/paper.png');
+            break;
+        case 'scissors':
+            userIcon.setAttribute('src', 'imgs/scissors.png');
+            break;
+    }
+    userIcon.style.visibility = 'visible';
+    userIcon.classList.add('emerging-element');
+
+}
+
+function displayOtherIcons(computerSelection, result) {
+    const userExpression = document.getElementById('user-icon');
+    const computerIcon = document.getElementById('computer-play-icon');
+
+    
+    switch (computerSelection) {
+        case 'rock':
+            computerIcon.setAttribute('src', 'imgs/rock-reverse.png')
+            computerIcon.style.visibility = 'visible';
+            break;
+        case 'paper':
+            computerIcon.setAttribute('src', 'imgs/paper-reverse.png')
+            computerIcon.style.visibility = 'visible';
+            break;
+        case 'scissors':
+            computerIcon.setAttribute('src', 'imgs/scissors-reverse.png')
+            computerIcon.style.visibility = 'visible';
+            break;
+    }
+    switch (result) {
+        case 'win':
+            userExpression.setAttribute('src', 'imgs/user-win.png');
+            break;
+        case 'tie':
+            userExpression.setAttribute('src', 'imgs/user-normal.png');
+            break;
+        case 'lose':
+            userExpression.setAttribute('src', 'imgs/user-lose.png');
+            break;
+    }
+    return;
 }
 
 function playRoundAudio(result) {
@@ -152,52 +210,11 @@ function computerPlay() {
     return possibleSelections[randomIndex]; 
 }
 
-function displayIcons(userSelection, computerSelection, result) {
-    const userExpression = document.getElementById('user-icon');
-    const userIcon = document.querySelector('.user-play-icon');
-    const computerIcon = document.getElementById('computer-play-icon');
-
-    userIcon.classList.remove('reset-transition');
-    switch (userSelection) {
-        case 'rock':
-            userIcon.setAttribute('src', 'imgs/rock.png');
-            break;
-        case 'paper':
-            userIcon.setAttribute('src', 'imgs/paper.png');
-            break;
-        case 'scissors':
-            userIcon.setAttribute('src', 'imgs/scissors.png');
-            break;
-    }
-    userIcon.style.visibility = 'visible';
-    userIcon.classList.add('emerging-element');
-    userIcon.classList.add('reset-transition');
-    switch (computerSelection) {
-        case 'rock':
-            computerIcon.setAttribute('src', 'imgs/rock-reverse.png')
-            computerIcon.style.visibility = 'visible';
-            break;
-        case 'paper':
-            computerIcon.setAttribute('src', 'imgs/paper-reverse.png')
-            computerIcon.style.visibility = 'visible';
-            break;
-        case 'scissors':
-            computerIcon.setAttribute('src', 'imgs/scissors-reverse.png')
-            computerIcon.style.visibility = 'visible';
-            break;
-    }
-    switch (result) {
-        case 'win':
-            userExpression.setAttribute('src', 'imgs/user-win.png');
-            break;
-        case 'tie':
-            userExpression.setAttribute('src', 'imgs/user-normal.png');
-            break;
-        case 'lose':
-            userExpression.setAttribute('src', 'imgs/user-lose.png');
-            break;
-    }
-    return;
+function resetTransition(element) {
+    element.classList.add('remove-transition');
+    element.classList.remove('emerging-element');
+    element.offsetTop;
+    element.classList.remove('remove-transition');
 }
 
 function getMusicPermission() {
