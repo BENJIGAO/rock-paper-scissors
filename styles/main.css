@@ -132,7 +132,7 @@ p#permission-message strong {
 
 .user-play-icon {
     transform: scale(0.1);
-    transition: all 2s;
+    transition: all 1s;
 }
 
 .emerging-element {

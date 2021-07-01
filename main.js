@@ -2,7 +2,7 @@ getMusicPermission();
 main();
 
 function main() {
-    let btns = document.querySelectorAll('div#rps-icons > button');
+    const btns = document.querySelectorAll('div#rps-icons > button');
     btns.forEach((btn) => {btn.addEventListener('click', playGame)});
     return;
 }
@@ -12,17 +12,32 @@ function playGame(e) {
     let computerSelection = computerPlay();
     let result = playRound(userSelection, computerSelection);
     displayUserPlay(userSelection);
-    playRestOfGame(computerSelection, result);
+    disableButtons();
+    setTimeout(playRestOfGame, 1000, computerSelection, result);
 }
 
 function playRestOfGame (computerSelection, result) {
     displayOtherIcons(computerSelection, result);
     updateScore(result);
+    enableButtons();
     if (checkScore() == 'Done') {
         endGame();
         return;
     }
     playRoundAudio(result);
+    
+}
+
+function disableButtons() {
+    const btns = document.querySelectorAll('div#rps-icons > button');
+    btns.forEach((btn) => {btn.disabled = true});
+}
+
+
+function enableButtons() {
+    const btns = document.querySelectorAll('div#rps-icons > button');
+    btns.forEach((btn) => {btn.disabled = false});
+    
 }
 
 function displayUserPlay(userSelection) {
@@ -40,6 +55,7 @@ function displayUserPlay(userSelection) {
             userIcon.setAttribute('src', 'imgs/scissors.png');
             break;
     }
+    userIcon.classList.remove('remove-transition');
     userIcon.style.visibility = 'visible';
     userIcon.classList.add('emerging-element');
 
@@ -120,7 +136,9 @@ function reset() {
     restart.style.visibility = 'hidden';
     restart.removeEventListener('click', reset);
     document.getElementById('user-icon').setAttribute('src', 'imgs/user-normal.png');
-    document.querySelector('.user-play-icon').style.visibility = 'hidden';
+    const userIcon = document.querySelector('.user-play-icon')
+    resetTransition(userIcon);
+    userIcon.style.visibility = 'hidden';
     document.getElementById('computer-play-icon').style.visibility = 'hidden';
     main();
     return;
@@ -214,7 +232,6 @@ function resetTransition(element) {
     element.classList.add('remove-transition');
     element.classList.remove('emerging-element');
     element.offsetTop;
-    element.classList.remove('remove-transition');
 }
 
 function getMusicPermission() {
