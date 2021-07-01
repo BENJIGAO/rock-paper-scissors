@@ -157,6 +157,7 @@ function displayIcons(userSelection, computerSelection, result) {
     const userIcon = document.querySelector('.user-play-icon');
     const computerIcon = document.getElementById('computer-play-icon');
 
+    userIcon.classList.remove('reset-transition');
     switch (userSelection) {
         case 'rock':
             userIcon.setAttribute('src', 'imgs/rock.png');
@@ -170,6 +171,7 @@ function displayIcons(userSelection, computerSelection, result) {
     }
     userIcon.style.visibility = 'visible';
     userIcon.classList.add('emerging-element');
+    userIcon.classList.add('reset-transition');
     switch (computerSelection) {
         case 'rock':
             computerIcon.setAttribute('src', 'imgs/rock-reverse.png')
