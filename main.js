@@ -13,12 +13,19 @@ function playGame(e) {
     let result = playRound(userSelection, computerSelection);
     displayUserPlay(userSelection);
     disableButtons();
+    hideComputerIcon();
     setTimeout(playRestOfGame, 1000, computerSelection, result);
+}
+
+function hideComputerIcon() {
+    const computerIcon = document.getElementById('computer-play-icon');
+    computerIcon.style.visibility = 'hidden';
 }
 
 function playRestOfGame (computerSelection, result) {
     displayOtherIcons(computerSelection, result);
     updateScore(result);
+    animateScore(result);
     enableButtons();
     if (checkScore() == 'Done') {
         endGame();
@@ -26,6 +33,42 @@ function playRestOfGame (computerSelection, result) {
     }
     playRoundAudio(result);
     
+}
+
+function animateScore(result) {
+    const userTally = document.getElementById('user-tally');
+    const computerTally = document.getElementById('computer-tally');
+    if (result == 'tie') {
+        userTally.classList.add('tally-animation');
+        computerTally.classList.add('tally-animation');
+        return;
+    }
+
+    else if (result == 'win') {
+        userTally.classList.add('tally-animation');
+        return;
+    }
+    else {
+        computerTally.classList.add('tally-animation');
+        return;
+    }
+}
+
+function playRound(userSelection, computerSelection) {
+    // if user & computer choose the same
+    if (userSelection == computerSelection) {
+        return 'tie'; 
+    }
+    // if user beats computer
+    else if (userSelection == 'rock' && computerSelection == 'scissors'|| 
+            userSelection == 'scissors' && computerSelection == 'paper' ||
+            userSelection == 'paper' && computerSelection == 'rock') {
+        return 'win'; 
+    }
+    // if computer beats user
+    else {
+        return 'lose'; 
+    }
 }
 
 function disableButtons() {
@@ -68,18 +111,17 @@ function displayOtherIcons(computerSelection, result) {
     
     switch (computerSelection) {
         case 'rock':
-            computerIcon.setAttribute('src', 'imgs/rock-reverse.png')
-            computerIcon.style.visibility = 'visible';
+            computerIcon.setAttribute('src', 'imgs/rock-reverse.png');
             break;
         case 'paper':
-            computerIcon.setAttribute('src', 'imgs/paper-reverse.png')
-            computerIcon.style.visibility = 'visible';
+            computerIcon.setAttribute('src', 'imgs/paper-reverse.png');
             break;
         case 'scissors':
-            computerIcon.setAttribute('src', 'imgs/scissors-reverse.png')
-            computerIcon.style.visibility = 'visible';
+            computerIcon.setAttribute('src', 'imgs/scissors-reverse.png');
             break;
     }
+    computerIcon.style.visibility = 'visible';
+
     switch (result) {
         case 'win':
             userExpression.setAttribute('src', 'imgs/user-win.png');

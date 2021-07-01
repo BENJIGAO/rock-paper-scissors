@@ -183,7 +183,12 @@ p#permission-message strong {
 }
 
 #user-tally, #computer-tally {
-    font-size: 80px
+    font-size: 80px;
+    transition: all 1s;
+}
+
+.tally-animation {
+    transform: scale(1.2);
 }
 
 #display-message {
