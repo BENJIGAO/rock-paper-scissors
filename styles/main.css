@@ -4,6 +4,38 @@ body, html {
     color: white;
 }
 
+p#permission-message strong {
+   font-weight: bold; 
+}
+
+#music-permission {
+    position: fixed;
+    display: flex;
+    top: 0%;
+    width: 100%;
+    height: 150px;
+    background-color: rgba(255, 153, 153, 0.9);
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#permission-message {
+    font-size: 40px;
+    color: black;
+}
+
+.permission-btn {
+    width: 4rem;
+    height: 1.5rem;
+    width: 150px;
+    height: 50px;
+    font-size: 25px;
+    background-color: #d6c4c4;
+    margin: 0px 20px;
+}
+
 #container {
     display: flex;
     flex-direction: column;
@@ -96,6 +128,19 @@ body, html {
 #user-play, #computer-play {
     visibility: hidden;
     width: 400px;
+}
+
+.user-play-icon {
+    transform: scale(0.1);
+    transition: all 2s;
+}
+
+.emerging-element {
+    transform: scale(1);
+}
+
+.reset-transition {
+    transition: none;
 }
 
 #user-play {

@@ -5,11 +5,11 @@
     <link rel="stylesheet" href="styles/reset.css">
 </head>
 <body>
-    <audio id="background-music" src="audio/background-music.mp3" loop autoplay></audio>
-    <audio id="win-game-audio" src="audio/win-game.mp3"></audio>
-    <audio id="lose-game-audio" src="audio/game-over.mp3"></audio>
-    <audio id="win-round-audio" src="audio/win.mp3"></audio>
-
+    <div id="music-permission">
+        <p id="permission-message"><strong>Play background music? (Trust me, it'll be more fun)</strong></p>
+        <button id="yes" class="permission-btn">Yes</button>
+        <button id="no" class="permission-btn">No</button>
+    </div>
     <div id="container">
         <h1 id="main-header">
             <img id="scythe-left" src="imgs/scythe-left.png">
@@ -31,7 +31,7 @@
                 <img id="user-icon" src="imgs/user-normal.png">
             </div>
             <div id="user-play">
-                <img id="user-play-icon" src="imgs/rock.png">
+                <img class="user-play-icon" src="imgs/rock.png">
             </div>
             <div id="score-display">
                 <div id="score">
@@ -50,8 +50,14 @@
                 <img id="computer-icon" src="imgs/computer.png">
             </div>
         </div>
-    </div>  
-    
+    </div>
+    <audio id="background-music" src="audio/background-music.mp3" loop></audio>
+    <audio id="win-game-audio" src="audio/win-game.mp3"></audio>
+    <audio id="tie-game-audio" src="audio/tie-game-audio.mp3"></audio>
+    <audio id="lose-game-audio" src="audio/lose-game-audio.mp3"></audio>
+    <audio id="win-round-audio" src="audio/win-round-audio.mp3"></audio>  
+    <audio id="tie-round-audio" src="audio/tie-round-audio.mp3"></audio>
+    <audio id="lose-round-audio" src="audio/lose-round-audio.mp3"></audio>
     <script src="main.js" type="text/javascript"></script>
 </body>
 </html>
