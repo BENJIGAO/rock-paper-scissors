@@ -139,10 +139,6 @@ p#permission-message strong {
     transform: scale(1);
 }
 
-.reset-transition {
-    transition: none;
-}
-
 #user-play {
     transform: translateX(15px);
 }

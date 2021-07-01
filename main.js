@@ -152,12 +152,20 @@ function computerPlay() {
     return possibleSelections[randomIndex]; 
 }
 
+function resetTransition(element) {
+    element.style.transition = 'none';
+    element.classList.remove('emerging-element');
+    element.style.transition = 'all 2s';
+
+}
+
 function displayIcons(userSelection, computerSelection, result) {
     const userExpression = document.getElementById('user-icon');
     const userIcon = document.querySelector('.user-play-icon');
     const computerIcon = document.getElementById('computer-play-icon');
 
-    userIcon.classList.remove('reset-transition');
+    resetTransition(userIcon);
+
     switch (userSelection) {
         case 'rock':
             userIcon.setAttribute('src', 'imgs/rock.png');
@@ -171,7 +179,6 @@ function displayIcons(userSelection, computerSelection, result) {
     }
     userIcon.style.visibility = 'visible';
     userIcon.classList.add('emerging-element');
-    userIcon.classList.add('reset-transition');
     switch (computerSelection) {
         case 'rock':
             computerIcon.setAttribute('src', 'imgs/rock-reverse.png')
