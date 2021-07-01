@@ -4,6 +4,13 @@ main();
 function main() {
     const btns = document.querySelectorAll('div#rps-icons > button');
     btns.forEach((btn) => {btn.addEventListener('click', playGame)});
+    const tallies = document.querySelectorAll('div#score > p');
+    tallies.forEach((tally) => {tally.addEventListener('transitionend', removeTransition)});
+    return;
+}
+
+function removeTransition(e) {
+    e.target.classList.value = '';
     return;
 }
 
