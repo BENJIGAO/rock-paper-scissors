@@ -20,17 +20,6 @@ function main() {
     tallies.forEach((tally) => {tally.addEventListener('transitionend', removeTransition)});
 }
 
-function handleMusic() {
-    const isMusicPlaying = document.getElementById('background-music');
-    if (isMusicPlaying.currentTime) {
-        isMusicPlaying.play(); 
-    }
-}
-
-function removeTransition(e) {
-    e.target.classList.value = '';
-}
-
 function playGame(e) {
     let userSelection = e.toElement.className.split(' ')[0];
     let computerSelection = computerPlay();
@@ -40,6 +29,17 @@ function playGame(e) {
     hideComputerIcon();
     // Time passes to let the user icon undergo transition
     setTimeout(playRestOfGame, 1000, computerSelection, result);
+}
+
+function handleMusic() {
+    const isMusicPlaying = document.getElementById('background-music');
+    if (isMusicPlaying.currentTime) {
+        isMusicPlaying.play(); 
+    }
+}
+
+function removeTransition(e) {
+    e.target.classList.value = '';
 }
 
 function hideComputerIcon() {
@@ -130,7 +130,6 @@ function displayUserPlay(userSelection) {
 function displayOtherIcons(computerSelection, result) {
     const userExpression = document.getElementById('user-icon');
     const computerIcon = document.getElementById('computer-play-icon');
-
     
     switch (computerSelection) {
         case 'rock':
@@ -156,7 +155,6 @@ function displayOtherIcons(computerSelection, result) {
             userExpression.setAttribute('src', 'imgs/user-lose.png');
             break;
     }
-    return;
 }
 
 function playRoundAudio(result) {
@@ -177,7 +175,6 @@ function playRoundAudio(result) {
         audio.currentTime = 0;
         audio.play()
         return;
-
     }
 }
 
@@ -189,7 +186,6 @@ function endGame() {
     restart.textContent = 'Restart?';
     restart.style.visibility = 'visible';
     restart.addEventListener('click', reset);
-    return;
 }
 
 function reset() {
@@ -206,7 +202,6 @@ function reset() {
     userIcon.style.visibility = 'hidden';
     document.getElementById('computer-play-icon').style.visibility = 'hidden';
     main();
-    return;
 }
 
 function checkScore() {
@@ -243,9 +238,9 @@ function updateScore(result) {
         let tmpUserScore = +userScore.textContent;
         userScore.textContent = ++tmpUserScore; 
 
-        const CompScore = document.getElementById('computer-tally');
-        let tmpCompScore = +CompScore.textContent;
-        CompScore.textContent = ++tmpCompScore; 
+        const compScore = document.getElementById('computer-tally');
+        let tmpCompScore = +compScore.textContent;
+        compScore.textContent = ++tmpCompScore; 
 
         displayMessage.textContent = 'Tie!';
         return;
@@ -263,23 +258,21 @@ function updateScore(result) {
         const CompScore = document.getElementById('computer-tally');
         let tmpCompScore = +CompScore.textContent;
         CompScore.textContent = ++tmpCompScore; 
+
         displayMessage.textContent = 'Lose!';
         return;
     }
 }
 
 function playRound(userSelection, computerSelection) {
-    // if user & computer choose the same
     if (userSelection == computerSelection) {
         return 'tie'; 
     }
-    // if user beats computer
     else if (userSelection == 'rock' && computerSelection == 'scissors'|| 
             userSelection == 'scissors' && computerSelection == 'paper' ||
             userSelection == 'paper' && computerSelection == 'rock') {
         return 'win'; 
     }
-    // if computer beats user
     else {
         return 'lose'; 
     }
@@ -287,15 +280,15 @@ function playRound(userSelection, computerSelection) {
 
 function computerPlay() {   
     const possibleSelections = ['rock', 'paper', 'scissors']; 
-    // 0-2
+    // Random number from 0-2
     let randomIndex = Math.floor(Math.random() * 3); 
-    // random array element
     return possibleSelections[randomIndex]; 
 }
 
 function resetTransition(element) {
     element.classList.add('remove-transition');
     element.classList.remove('emerging-element');
+    // Triggers reflow
     element.offsetTop;
 }
 
