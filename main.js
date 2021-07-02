@@ -2,6 +2,8 @@ getMusicPermission();
 main();
 
 function main() {
+    const isMusicPlaying = document.getElementById('background-music');
+    if (isMusicPlaying.currentTime) isMusicPlaying.play(); 
     const btns = document.querySelectorAll('div#rps-icons > button');
     btns.forEach((btn) => {btn.addEventListener('click', playGame)});
     const tallies = document.querySelectorAll('div#score > p');
@@ -168,11 +170,11 @@ function playRoundAudio(result) {
 function endGame() {
     let btns = document.querySelectorAll('div#rps-icons > button');
     btns.forEach((btn) => {btn.removeEventListener('click', playGame)});
-    const tmpRef = document.getElementById('score-display');
+    document.getElementById('background-music').pause();
     const restart = document.getElementById('restart');
     restart.textContent = 'Restart?';
     restart.style.visibility = 'visible';
-    restart.addEventListener('click', reset)
+    restart.addEventListener('click', reset);
     return;
 }
 
