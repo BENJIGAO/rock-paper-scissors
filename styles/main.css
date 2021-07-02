@@ -45,11 +45,45 @@ body, html {
 
 .comp-text {
     position: fixed;
-    top: 47.5%;
-    left: 37%;
+    top: 46.5%;
+    left: 30%;
+    color: #1e9e42;
+    font-size: 30px;
+    font-weight: bold;
+    opacity: 0;
+    animation-name: appearing-fading-text;
+    animation-timing-function: step-end;
 }
 
+#m1 {
+    animation-delay: 12s;
+    animation-duration: 4s;
+}
 
+@keyframes appearing-fading-text {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.cover {
+    position: fixed;
+    width: 100vw;
+    height: 20vh;
+    top: 40vh;
+    background-color: black;
+    z-index: 1;
+    visibility: hidden;
+    animation-name: moving-cover;
+    animation-duration: 4s;
+    animation-delay: 12s;
+    animation-iteration-count: 5;
+    animation-timing-function: linear;
+}
+
+@keyframes moving-cover {
+    from {visibility: visible;}
+    to   {transform: translateX(1000px);}
+}
 
 
 #main-container {
