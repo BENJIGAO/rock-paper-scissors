@@ -182,9 +182,9 @@ body, html {
 .btn:hover {box-shadow: rgb(209 206 9) 0px 22px 70px 4px, rgb(209 206 9) 0px -22px 70px 4px;}
 .btn:active {transform: translateY(40px);}
 
-.rock {background-image: url("/imgs/rock.png");} 
-.paper {background-image: url("/imgs/paper.png");}
-.scissors {background-image: url("/imgs/scissors.png");}
+.rock {background-image: url("../imgs/rock.png");} 
+.paper {background-image: url("../imgs/paper.png");}
+.scissors {background-image: url("../imgs/scissors.png");}
 
 #bottom-display {
     display: flex;
