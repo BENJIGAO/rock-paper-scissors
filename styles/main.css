@@ -4,6 +4,62 @@ body, html {
     color: white;
 }
 
+#beginning-container {
+    position: fixed;
+    top: 0%;
+    width: 100vw;
+    height: 100vh;
+}
+
+#blinking-cursor {
+    height: 5%;
+    width: 2%;
+    position: fixed;
+    top: 46%;
+    left: 48%;
+    background-color: #1fc04c;
+    animation-name: blinks;
+    animation-duration: 9s;
+    animation-timing-function: step-start;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+}
+
+@keyframes blinks {
+    5%   {opacity: 0;}
+    10%  {opacity: 1;}
+    15%  {opacity: 0;}
+    20%  {opacity: 1;}
+    25%  {opacity: 0;}
+    30%  {opacity: 1;}
+    36%  {opacity: 0;}
+    42%  {opacity: 1;}
+    48%  {opacity: 0;}
+    54%  {opacity: 1;}
+    61%  {opacity: 0;}
+    70%  {opacity: 1;}
+    79%  {opacity: 0;}
+    88%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.comp-text {
+    position: fixed;
+    top: 47.5%;
+    left: 37%;
+}
+
+
+
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: inherit;
+    visibility: hidden;
+}
+
 p#permission-message strong {
    font-weight: bold; 
 }
@@ -34,13 +90,6 @@ p#permission-message strong {
     font-size: 25px;
     background-color: #d6c4c4;
     margin: 0px 20px;
-}
-
-#container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: inherit;
 }
 
 #main-header {
