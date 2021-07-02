@@ -3,26 +3,32 @@ getMusicPermission();
 main();
 
 function listenForInitialClick() {
-    document.querySelector('body').addEventListener('click', () => {
-        document.getElementById('beginning-container').style.visibility = 'hidden';
-        document.getElementById('main-container').style.visibility = 'visible';
-        document.getElementById('cover').style.animation = 'none';  
-    })
+    document.querySelector('body').addEventListener('click', transitionWindow);
+}
+
+function transitionWindow() {
+    document.getElementById('beginning-container').style.visibility = 'hidden';
+    document.getElementById('main-container').style.visibility = 'visible';
+    document.getElementById('cover').style.animation = 'none'; 
 }
 
 function main() {
-    const isMusicPlaying = document.getElementById('background-music');
-    if (isMusicPlaying.currentTime) isMusicPlaying.play(); 
+    handleMusic();
     const btns = document.querySelectorAll('div#rps-icons > button');
     btns.forEach((btn) => {btn.addEventListener('click', playGame)});
     const tallies = document.querySelectorAll('div#score > p');
     tallies.forEach((tally) => {tally.addEventListener('transitionend', removeTransition)});
-    return;
+}
+
+function handleMusic() {
+    const isMusicPlaying = document.getElementById('background-music');
+    if (isMusicPlaying.currentTime) {
+        isMusicPlaying.play(); 
+    }
 }
 
 function removeTransition(e) {
     e.target.classList.value = '';
-    return;
 }
 
 function playGame(e) {
@@ -32,12 +38,12 @@ function playGame(e) {
     displayUserPlay(userSelection);
     disableButtons();
     hideComputerIcon();
+    // Time passes to let the user icon undergo transition
     setTimeout(playRestOfGame, 1000, computerSelection, result);
 }
 
 function hideComputerIcon() {
-    const computerIcon = document.getElementById('computer-play-icon');
-    computerIcon.style.visibility = 'hidden';
+    document.getElementById('computer-play-icon').style.visibility = 'hidden';
 }
 
 function playRestOfGame (computerSelection, result) {
@@ -49,6 +55,7 @@ function playRestOfGame (computerSelection, result) {
         endGame();
         return;
     }
+    // Round audio isn't played if last round
     playRoundAudio(result);
     
 }
@@ -73,17 +80,15 @@ function animateScore(result) {
 }
 
 function playRound(userSelection, computerSelection) {
-    // if user & computer choose the same
     if (userSelection == computerSelection) {
         return 'tie'; 
     }
-    // if user beats computer
+
     else if (userSelection == 'rock' && computerSelection == 'scissors'|| 
             userSelection == 'scissors' && computerSelection == 'paper' ||
             userSelection == 'paper' && computerSelection == 'rock') {
         return 'win'; 
     }
-    // if computer beats user
     else {
         return 'lose'; 
     }
