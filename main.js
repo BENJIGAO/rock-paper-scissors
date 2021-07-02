@@ -291,5 +291,4 @@ function getMusicPermission() {
     document.getElementById('no').addEventListener('click', () => {
         document.getElementById('music-permission').style.visibility = 'hidden';
     })
-    return;
 }
