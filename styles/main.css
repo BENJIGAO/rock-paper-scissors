@@ -14,102 +14,57 @@ body, html {
 #blinking-cursor {
     height: 5%;
     width: 2%;
-    position: fixed;
+    position: inherit;
     top: 46%;
     left: 48%;
+    opacity: 0;
     background-color: #1fc04c;
-    animation-name: seven-blinks;
-    animation-duration: 9s;
-    animation-timing-function: step-start;
-    animation-fill-mode: forwards;
-    animation-delay: 1s;
+    animation: seven-blinks 9s step-start 1s forwards;
 }
 
 @keyframes seven-blinks {
-    5%   {opacity: 0;}
-    10%  {opacity: 1;}
-    15%  {opacity: 0;}
-    20%  {opacity: 1;}
-    25%  {opacity: 0;}
-    30%  {opacity: 1;}
-    36%  {opacity: 0;}
-    42%  {opacity: 1;}
-    48%  {opacity: 0;}
-    54%  {opacity: 1;}
-    61%  {opacity: 0;}
-    70%  {opacity: 1;}
-    79%  {opacity: 0;}
-    88%  {opacity: 1;}
-    100% {opacity: 0;}
+    5%   {opacity: 1;}
+    10%  {opacity: 0;}
+    15%  {opacity: 1;}
+    20%  {opacity: 0;}
+    25%  {opacity: 1;}
+    30%  {opacity: 0;}
+    36%  {opacity: 1;}
+    42%  {opacity: 0;}
+    48%  {opacity: 1;}
+    54%  {opacity: 0;}
+    61%  {opacity: 1;}
+    69%  {opacity: 0;}
+    77%  {opacity: 1;}
+    84%  {opacity: 0;}
+    92%  {opacity: 1;}
+    100% {opacity: 0}
 }
 
-@keyframes continuous-blinks {
-    0%   {opacity: 1;}
-    50%  {opacity: 0;}
-    100% {opacity: 1;}
-}
 .comp-text {
-    position: fixed;
+    position: inherit;
     top: 46.5%;
     left: 40%;
     color: #1e9e42;
     font-size: 30px;
     font-weight: bold;
     opacity: 0;
-    animation-name: appearing-fading-text;
-    animation-timing-function: step-end;
-    animation-duration: 3s;
+    animation: appearing-fading-text 3s step-end;
     letter-spacing: 3.5px;
 }
 
-#m1 {
-    animation-delay: 10s;
-  
-}
-
-#m2 {
-    animation-delay: 13s;
-}
-
-#m3 {
-    animation-delay: 16s;
-}
-
-#m4 {
-    animation-delay: 19s;
-}
-
-#m5 {
-    animation-delay: 22s;
-}
-
-#m6 {
-    animation-delay: 25s;
-}
-
-#m7 {
-    animation-delay: 28s;
-}
-
-#m8 {
-    animation-delay: 31s;
-}
-
-#m9 {
-    animation-delay: 34s;
-}
-
-#m10 {
-    animation-delay: 37s;
-}
-
-#m11 {
-    animation-delay: 40s;
-}
-
-#m12 {
-    animation-delay: 43s;
-}
+#m1  {animation-delay: 10s;}
+#m2  {animation-delay: 13s;}
+#m3  {animation-delay: 16s;}
+#m4  {animation-delay: 19s;}
+#m5  {animation-delay: 22s;}
+#m6  {animation-delay: 25s;}
+#m7  {animation-delay: 28s;}
+#m8  {animation-delay: 31s;}
+#m9  {animation-delay: 34s;}
+#m10 {animation-delay: 37s;}
+#m11 {animation-delay: 40s;}
+#m12 {animation-delay: 43s;}
 
 @keyframes appearing-fading-text {
     0% {opacity: 1;}
@@ -117,19 +72,15 @@ body, html {
 }
 
 #cover {
-    position: fixed;
+    position: inherit;
     width: 100vw;
-    height: 20vh;
-    top: 40vh;
+    height: 20%;
+    top: 40%;
     left: 40%;
     background-color: black;
     z-index: 1;
     visibility: hidden;
-    animation-name: moving-cover;
-    animation-duration: 3s;
-    animation-delay: 10s;
-    animation-iteration-count: 12;
-    animation-timing-function: linear;
+    animation: moving-cover 3s linear 10s 12;
 }
 
 @keyframes moving-cover {
@@ -139,14 +90,11 @@ body, html {
 
 #user-message {
     text-align: center;
-    margin-top: 25%;
+    margin-top: 23.5%;
     color: #1e9e42;
     font-size: 30px;
     opacity: 0;
-    animation-delay: 46s;
-    animation-name: user-message;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
+    animation: user-message 1s 46s forwards;
 }
 
 @keyframes user-message {
@@ -160,24 +108,22 @@ body, html {
     align-items: center;
     height: inherit;
     visibility: hidden;
-    z-index: 2;
 }
 
-p#permission-message strong {
+#permission-message {
    font-weight: bold; 
 }
 
 #music-permission {
     position: fixed;
     display: flex;
+    justify-content: center;
+    align-items: center;
     top: 0%;
     width: 100%;
     height: 150px;
     background-color: rgba(255, 153, 153, 0.9);
     z-index: 1;
-    justify-content: center;
-    align-items: center;
-    
 }
 
 #permission-message {
@@ -202,26 +148,19 @@ p#permission-message strong {
     margin-top: 60px;
 }
 
+.scythe {height: 100px;}
+
 #scythe-left {
-    height: 100px;
     transform: scale(2) rotate(10deg) skewX(-20deg)translateX(-15px);
 }
 
 #scythe-right {
-    height: 100px;
     transform: scale(2) rotate(-10deg) skewX(20deg)translateX(10px);
-    
 }
 
-#first-line-header {
-    color: red;
-    font-size: 40px;
-}
-
-#sub-heading {
-    font-size: 40px;
-    margin-top: 30px;
-}
+#first-line-header, #sub-heading {font-size: 40px;}
+#first-line-header {color: red;}
+#sub-heading {margin-top: 30px;}
 
 #rps-icons {
     display: flex;
@@ -240,26 +179,12 @@ p#permission-message strong {
     border-style: solid;
 }
 
-.btn:hover {
-    box-shadow: rgb(209 206 9) 0px 22px 70px 4px, rgb(209 206 9) 0px -22px 70px 4px;
-}
+.btn:hover {box-shadow: rgb(209 206 9) 0px 22px 70px 4px, rgb(209 206 9) 0px -22px 70px 4px;}
+.btn:active {transform: translateY(40px);}
 
-
-.btn:active {
-    transform: translateY(40px);
-}
-
-.rock {
-    background-image: url("/imgs/rock.png");
-} 
-
-.paper {
-    background-image: url("/imgs/paper.png");
-}
-
-.scissors {
-    background-image: url("/imgs/scissors.png");
-}
+.rock {background-image: url("/imgs/rock.png");} 
+.paper {background-image: url("/imgs/paper.png");}
+.scissors {background-image: url("/imgs/scissors.png");}
 
 #bottom-display {
     display: flex;
@@ -287,33 +212,15 @@ p#permission-message strong {
     transition: all 1s;
 }
 
-.emerging-element {
-    transform: scale(1);
-}
+.emerging-element {transform: scale(1);}
+.remove-transition {transition: none;}
 
-.remove-transition {
-    transition: none;
-}
+#user-play {transform: translateX(15px);}
+#user-icon {transform: translateY(15px);}
 
-#user-play {
-    transform: translateX(15px);
-}
-
-#user-icon {
-    transform: translateY(15px);
-}
-
-#computer-icon {
-    height: 300px;
-}
-
-#computer-play {
-    transform: translateX(-30px);
-}
-
-#computer-display {
-    transform: translateX(-10px);
-}
+#computer-icon {height: 300px;}
+#computer-play {transform: translateX(-30px);}
+#computer-display {transform: translateX(-10px);}
 
 #score-display {
     display: flex;
@@ -360,6 +267,4 @@ p#permission-message strong {
     background-color: #ff9999;
 }
 
-#restart:hover {
-    box-shadow: rgb(209 206 9) 0px 22px 70px 4px, rgb(209 206 9) 0px -22px 70px 4px;
-}
+#restart:hover {box-shadow: rgb(209 206 9) 0px 22px 70px 4px, rgb(209 206 9) 0px -22px 70px 4px;}
