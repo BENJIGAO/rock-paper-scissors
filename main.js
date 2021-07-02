@@ -1,5 +1,14 @@
+listenForInitialClick();
 getMusicPermission();
 main();
+
+function listenForInitialClick() {
+    document.querySelector('body').addEventListener('click', () => {
+        document.getElementById('beginning-container').style.visibility = 'hidden';
+        document.getElementById('main-container').style.visibility = 'visible';
+        document.getElementById('cover').style.animation = 'none';  
+    })
+}
 
 function main() {
     const isMusicPlaying = document.getElementById('background-music');

@@ -18,14 +18,14 @@ body, html {
     top: 46%;
     left: 48%;
     background-color: #1fc04c;
-    animation-name: blinks;
+    animation-name: seven-blinks;
     animation-duration: 9s;
     animation-timing-function: step-start;
     animation-fill-mode: forwards;
     animation-delay: 1s;
 }
 
-@keyframes blinks {
+@keyframes seven-blinks {
     5%   {opacity: 0;}
     10%  {opacity: 1;}
     15%  {opacity: 0;}
@@ -43,21 +43,72 @@ body, html {
     100% {opacity: 0;}
 }
 
+@keyframes continuous-blinks {
+    0%   {opacity: 1;}
+    50%  {opacity: 0;}
+    100% {opacity: 1;}
+}
 .comp-text {
     position: fixed;
     top: 46.5%;
-    left: 30%;
+    left: 40%;
     color: #1e9e42;
     font-size: 30px;
     font-weight: bold;
     opacity: 0;
     animation-name: appearing-fading-text;
     animation-timing-function: step-end;
+    animation-duration: 3s;
+    letter-spacing: 3.5px;
 }
 
 #m1 {
-    animation-delay: 12s;
-    animation-duration: 4s;
+    animation-delay: 10s;
+  
+}
+
+#m2 {
+    animation-delay: 13s;
+}
+
+#m3 {
+    animation-delay: 16s;
+}
+
+#m4 {
+    animation-delay: 19s;
+}
+
+#m5 {
+    animation-delay: 22s;
+}
+
+#m6 {
+    animation-delay: 25s;
+}
+
+#m7 {
+    animation-delay: 28s;
+}
+
+#m8 {
+    animation-delay: 31s;
+}
+
+#m9 {
+    animation-delay: 34s;
+}
+
+#m10 {
+    animation-delay: 37s;
+}
+
+#m11 {
+    animation-delay: 40s;
+}
+
+#m12 {
+    animation-delay: 43s;
 }
 
 @keyframes appearing-fading-text {
@@ -65,24 +116,41 @@ body, html {
     100% {opacity: 0;}
 }
 
-.cover {
+#cover {
     position: fixed;
     width: 100vw;
     height: 20vh;
     top: 40vh;
+    left: 40%;
     background-color: black;
     z-index: 1;
     visibility: hidden;
     animation-name: moving-cover;
-    animation-duration: 4s;
-    animation-delay: 12s;
-    animation-iteration-count: 5;
+    animation-duration: 3s;
+    animation-delay: 10s;
+    animation-iteration-count: 12;
     animation-timing-function: linear;
 }
 
 @keyframes moving-cover {
     from {visibility: visible;}
     to   {transform: translateX(1000px);}
+}
+
+#user-message {
+    text-align: center;
+    margin-top: 25%;
+    color: #1e9e42;
+    font-size: 30px;
+    opacity: 0;
+    animation-delay: 46s;
+    animation-name: user-message;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes user-message {
+    to {opacity: 1;}
 }
 
 
@@ -92,6 +160,7 @@ body, html {
     align-items: center;
     height: inherit;
     visibility: hidden;
+    z-index: 2;
 }
 
 p#permission-message strong {
