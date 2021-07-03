@@ -8,6 +8,14 @@ function checkOS() {
         const mainContainer = document.getElementById('main-container')
         mainContainer.style.transform = 'scale(0.63)';
         mainContainer.style.transformOrigin = 'center 0';
+        document.getElementById('permission-message').style.fontSize = '30px';
+        document.getElementById('music-permission').style.height = '80px';
+        const yesBtn = document.getElementById('yes');
+        const noBtn = document.getElementById('no');
+        yesBtn.style.height = '40px';
+        yesBtn.style.width = '100px';
+        noBtn.style.height = '40px';
+        noBtn.style.width = '100px';
     }
 }
 
