@@ -1,6 +1,15 @@
 listenForInitialClick();
 getMusicPermission();
+checkOS()
 main();
+
+function checkOS() {
+    if (navigator.appVersion.indexOf('Win') != -1) {
+        const mainContainer = document.getElementById('main-container')
+        mainContainer.style.transform = 'scale(0.63)';
+        mainContainer.style.transformOrigin = 'center 0';
+    }
+}
 
 function listenForInitialClick() {
     document.querySelector('body').addEventListener('click', transitionWindow);
@@ -10,6 +19,9 @@ function transitionWindow() {
     document.getElementById('beginning-container').style.visibility = 'hidden';
     document.getElementById('main-container').style.visibility = 'visible';
     document.getElementById('cover').style.animation = 'none'; 
+    document.getElementById('music-permission').style.visibility = 'visible';
+    document.querySelector('body').removeEventListener('click', transitionWindow);
+
 }
 
 function main() {
