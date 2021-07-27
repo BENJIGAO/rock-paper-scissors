@@ -41,7 +41,7 @@ function main() {
 }
 
 function playGame(e) {
-    let userSelection = e.toElement.className.split(' ')[0];
+    let userSelection = e.target.className.split(' ')[0];
     let computerSelection = computerPlay();
     let result = playRound(userSelection, computerSelection);
     displayUserPlay(userSelection);
